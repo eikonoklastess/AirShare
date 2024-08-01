@@ -1,0 +1,41 @@
+<ColoredLabel@Label>:
+    # Custom Label with a background color
+    canvas.before:
+        Color:
+            rgba: 0.8, 0.1, 0.1, 1  # Red background color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+MainWidget:
+
+
+<MainWidget>:
+	BoxLayout:
+		orientation: "horizontal"
+		ColoredLabel:
+			text: "Connect SSH"
+			size_hint: None, None
+			height: "150dp"
+			width: "75dp"
+			canvas.before:
+				Color: 
+					rgba: 0, 0, 0, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				
+		BoxLayout:
+			orientation: "vertical"
+			TextInput:
+				size_hint: None, None
+				width: "150dp"
+				height: "25dp"
+			TextInput:
+				size_hint: None, None
+				width: "150dp"
+				height: "25dp"
+			TextInput:
+				size_hint: None, None
+				width: "150dp"
+				height: "25dp"
