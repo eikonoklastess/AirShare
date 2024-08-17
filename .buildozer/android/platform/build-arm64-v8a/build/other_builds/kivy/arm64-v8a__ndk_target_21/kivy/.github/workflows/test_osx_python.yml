@@ -1,0 +1,43 @@
+name: OSX Unittests
+
+on: [push, pull_request]
+
+env:
+  KIVY_SPLIT_EXAMPLES: 1
+  KIVY_GL_BACKEND: 'mock'
+  CC: clang
+  CXX: clang
+  FFLAGS: '-ff2c'
+  USE_SDL2: 1
+
+jobs:
+  unit_test:
+    name: "unit_test (${{ matrix.runs_on }}, ${{ matrix.python }})"
+    runs-on: ${{ matrix.runs_on }}
+    strategy:
+      matrix:
+        runs_on: ['macos-latest', 'apple-silicon-m1']
+        python: ['3.x']
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install build dependencies
+      run: |
+        brew install pkg-config cmake ninja
+    - name: Install dependencies
+      run: |
+        source .ci/ubuntu_ci.sh
+        ./tools/build_macos_dependencies.sh
+        install_kivy_test_run_pip_deps
+    - name: Install Kivy
+      run: |
+        source .ci/ubuntu_ci.sh
+        export KIVY_DEPS_ROOT=$(pwd)/kivy-dependencies
+        install_kivy
+    - name: Test Kivy
+      run: |
+        source .ci/ubuntu_ci.sh
+        test_kivy

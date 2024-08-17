@@ -1,0 +1,84 @@
+#:set white (1,1,1,1)
+#: set black (0,0,0,1)
+
+<MyLayout>
+	canvas.before:
+		Color:
+			rgba: white
+		Rectangle: 
+			pos: self.x, self.y
+			size: self.width, self.height
+
+	BoxLayout:
+		orientation: 'horizontal'
+		size: 0.9 * root.width, 0.5 * root.height
+		pos: 0.05 * root.width, 0.5 * root.height
+
+		canvas.before:
+			Color:
+				rgba: black
+			Line:
+				rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
+
+		Label:
+			size_hint: (0.3, 1)
+			text: "SSH"
+			color: black
+
+		BoxLayout:
+			orientation: 'vertical'
+			size_hint: (0.7, 1)
+
+			spacing: 30
+			padding: 30
+
+			BoxLayout:
+				orientation: 'horizontal'
+				spacing: 30
+
+				Button:
+					text: "search network"
+					color: black
+				Label:
+					id: status
+					canvas.before:
+						Color:
+							rgba: black
+						Rectangle:
+							pos: self.pos
+							size: self.size
+					text: root.status
+					color: white
+
+			
+			TextInput:
+				id: hostname
+				multiline: False
+				text: root.hostname
+			TextInput:
+				id: username
+				multiline: False
+				text: root.username
+			TextInput:
+				id: password
+				multiline: False
+				text: root.password
+			Button:
+				text: "connect"
+				on_press:
+					root.connect()
+				
+				
+
+
+<RoundedTextInput@TextInput>
+	multiline: False
+	font_size: 32
+	canvas.before:
+		Color:
+			rgba: white
+		RoundedRectangle:
+			pos: self.x, self.y
+			size: self.width, self.height
+			radius: [58]
+			

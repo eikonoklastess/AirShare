@@ -1,0 +1,9 @@
+
+[ci]
+coveralls
+pytest-rerunfailures
+
+[dev]
+pytest
+pytest-cov
+pycodestyle
