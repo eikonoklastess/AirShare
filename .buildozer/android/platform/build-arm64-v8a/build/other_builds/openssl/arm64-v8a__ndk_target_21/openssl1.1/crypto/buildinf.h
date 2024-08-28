@@ -11,7 +11,7 @@
  */
 
 #define PLATFORM "platform: android-arm64"
-#define DATE "built on: Fri Aug  2 01:48:01 2024 UTC"
+#define DATE "built on: Sat Aug 17 19:45:36 2024 UTC"
 
 /*
  * Generate compiler_flags as an array of individual characters. This is a

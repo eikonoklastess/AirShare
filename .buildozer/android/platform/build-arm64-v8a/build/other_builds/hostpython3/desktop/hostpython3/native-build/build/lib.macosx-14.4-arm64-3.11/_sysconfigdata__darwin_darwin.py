@@ -15,7 +15,8 @@ build_time_vars = {'ABIFLAGS': '',
  'BINDIR': '/usr/local/bin',
  'BINLIBDEST': '/usr/local/lib/python3.11',
  'BLDLIBRARY': 'libpython3.11.a',
- 'BLDSHARED': 'gcc -bundle -undefined dynamic_lookup',
+ 'BLDSHARED': 'gcc -bundle -undefined dynamic_lookup '
+              '-L/opt/homebrew/opt/libffi/lib -L/opt/homebrew/opt/libffi/lib',
  'BOOTSTRAP_HEADERS': '\\',
  'BUILDEXE': '.exe',
  'BUILDPYTHON': 'python.exe',
@@ -23,22 +24,27 @@ build_time_vars = {'ABIFLAGS': '',
  'BYTESTR_DEPS': '\\',
  'CC': 'gcc',
  'CCSHARED': '',
- 'CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall',
+ 'CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
+           '-I/opt/homebrew/opt/libffi/include '
+           '-I/opt/homebrew/opt/libffi/include',
  'CFLAGSFORSHARED': '',
  'CFLAGS_ALIASING': '-fno-strict-aliasing',
  'CFLAGS_NODIST': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
- 'CONFIGURE_CFLAGS': '',
+ 'CONFIGURE_CFLAGS': '-I/opt/homebrew/opt/libffi/include',
  'CONFIGURE_CFLAGS_NODIST': '-std=c11 -Wextra -Wno-unused-parameter '
                             '-Wno-missing-field-initializers '
+                            '-Wstrict-prototypes '
                             '-Werror=implicit-function-declaration '
                             '-fvisibility=hidden',
  'CONFIGURE_CPPFLAGS': '',
- 'CONFIGURE_LDFLAGS': '',
+ 'CONFIGURE_LDFLAGS': '-L/opt/homebrew/opt/libffi/lib',
  'CONFIGURE_LDFLAGS_NODIST': '',
  'CONFIGURE_LDFLAGS_NOLTO': '',
- 'CONFIG_ARGS': "'PKG_CONFIG_PATH=/opt/homebrew/opt/openssl@1.1/lib/pkgconfig'",
+ 'CONFIG_ARGS': "'PKG_CONFIG_PATH=/opt/homebrew/opt/openssl@1.1/lib/pkgconfig' "
+                "'CFLAGS=-I/opt/homebrew/opt/libffi/include' "
+                "'LDFLAGS=-L/opt/homebrew/opt/libffi/lib'",
  'CONFINCLUDEDIR': '/usr/local/include',
  'CONFINCLUDEPY': '/usr/local/include/python3.11',
  'COREPYTHONPATH': '',
@@ -602,11 +608,12 @@ build_time_vars = {'ABIFLAGS': '',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
  'LDCXXSHARED': 'g++ -bundle -undefined dynamic_lookup',
- 'LDFLAGS': '',
+ 'LDFLAGS': '-L/opt/homebrew/opt/libffi/lib -L/opt/homebrew/opt/libffi/lib',
  'LDFLAGS_NODIST': '',
  'LDLIBRARY': 'libpython3.11.a',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'gcc -bundle -undefined dynamic_lookup',
+ 'LDSHARED': 'gcc -bundle -undefined dynamic_lookup '
+             '-L/opt/homebrew/opt/libffi/lib -L/opt/homebrew/opt/libffi/lib',
  'LDVERSION': '3.11',
  'LIBC': '',
  'LIBDEST': '/usr/local/lib/python3.11',
@@ -614,9 +621,10 @@ build_time_vars = {'ABIFLAGS': '',
  'LIBEXPAT_A': 'Modules/expat/libexpat.a',
  'LIBEXPAT_CFLAGS': '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Modules/expat '
                     '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 '
-                    '-Wall -std=c11 -Wextra -Wno-unused-parameter '
-                    '-Wno-missing-field-initializers '
-                    '-Werror=implicit-function-declaration '
+                    '-Wall -I/opt/homebrew/opt/libffi/include '
+                    '-I/opt/homebrew/opt/libffi/include -std=c11 -Wextra '
+                    '-Wno-unused-parameter -Wno-missing-field-initializers '
+                    '-Wstrict-prototypes -Werror=implicit-function-declaration '
                     '-fvisibility=hidden  '
                     '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include/internal '
                     '-IObjects -IInclude -IPython -I. '
@@ -628,9 +636,10 @@ build_time_vars = {'ABIFLAGS': '',
  'LIBMPDEC_A': 'Modules/_decimal/libmpdec/libmpdec.a',
  'LIBMPDEC_CFLAGS': '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Modules/_decimal/libmpdec '
                     '-DUNIVERSAL=1 -Wsign-compare -Wunreachable-code -DNDEBUG '
-                    '-g -fwrapv -O3 -Wall -std=c11 -Wextra '
+                    '-g -fwrapv -O3 -Wall -I/opt/homebrew/opt/libffi/include '
+                    '-I/opt/homebrew/opt/libffi/include -std=c11 -Wextra '
                     '-Wno-unused-parameter -Wno-missing-field-initializers '
-                    '-Werror=implicit-function-declaration '
+                    '-Wstrict-prototypes -Werror=implicit-function-declaration '
                     '-fvisibility=hidden  '
                     '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include/internal '
                     '-IObjects -IInclude -IPython -I. '
@@ -896,7 +905,7 @@ build_time_vars = {'ABIFLAGS': '',
  'MULTIARCH': 'darwin',
  'MULTIARCH_CPPFLAGS': '-DMULTIARCH=\\"darwin\\"',
  'MVWDELCH_IS_EXPRESSION': 1,
- 'NO_AS_NEEDED': '',
+ 'NO_AS_NEEDED': '-Wl,--no-as-needed',
  'OBJECT_OBJS': '\\',
  'OPENSSL_INCLUDES': '-I/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include',
  'OPENSSL_LDFLAGS': '-L/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib',
@@ -939,45 +948,56 @@ build_time_vars = {'ABIFLAGS': '',
  'PYTHON_OBJS': '\\',
  'PY_BUILTIN_HASHLIB_HASHES': '"md5,sha1,sha256,sha512,sha3,blake2"',
  'PY_BUILTIN_MODULE_CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g '
-                             '-fwrapv -O3 -Wall -std=c11 -Wextra '
-                             '-Wno-unused-parameter '
+                             '-fwrapv -O3 -Wall '
+                             '-I/opt/homebrew/opt/libffi/include '
+                             '-I/opt/homebrew/opt/libffi/include -std=c11 '
+                             '-Wextra -Wno-unused-parameter '
                              '-Wno-missing-field-initializers '
+                             '-Wstrict-prototypes '
                              '-Werror=implicit-function-declaration '
                              '-fvisibility=hidden  '
                              '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include/internal '
                              '-IObjects -IInclude -IPython -I. '
                              '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include '
                              '-DPy_BUILD_CORE_BUILTIN',
- 'PY_CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall',
+ 'PY_CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
+              '-I/opt/homebrew/opt/libffi/include '
+              '-I/opt/homebrew/opt/libffi/include',
  'PY_CFLAGS_NODIST': '-std=c11 -Wextra -Wno-unused-parameter '
-                     '-Wno-missing-field-initializers '
+                     '-Wno-missing-field-initializers -Wstrict-prototypes '
                      '-Werror=implicit-function-declaration '
                      '-fvisibility=hidden  '
                      '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include/internal',
  'PY_COERCE_C_LOCALE': 1,
  'PY_CORE_CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 '
-                   '-Wall -std=c11 -Wextra -Wno-unused-parameter '
-                   '-Wno-missing-field-initializers '
-                   '-Werror=implicit-function-declaration -fvisibility=hidden  '
+                   '-Wall -I/opt/homebrew/opt/libffi/include '
+                   '-I/opt/homebrew/opt/libffi/include -std=c11 -Wextra '
+                   '-Wno-unused-parameter -Wno-missing-field-initializers '
+                   '-Wstrict-prototypes -Werror=implicit-function-declaration '
+                   '-fvisibility=hidden  '
                    '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include/internal '
                    '-IObjects -IInclude -IPython -I. '
                    '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include '
                    '-DPy_BUILD_CORE',
- 'PY_CORE_LDFLAGS': '',
+ 'PY_CORE_LDFLAGS': '-L/opt/homebrew/opt/libffi/lib '
+                    '-L/opt/homebrew/opt/libffi/lib',
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. '
                 '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include',
  'PY_ENABLE_SHARED': 0,
  'PY_FORMAT_SIZE_T': '"z"',
- 'PY_LDFLAGS': '',
+ 'PY_LDFLAGS': '-L/opt/homebrew/opt/libffi/lib -L/opt/homebrew/opt/libffi/lib',
  'PY_LDFLAGS_NODIST': '',
- 'PY_LDFLAGS_NOLTO': '',
+ 'PY_LDFLAGS_NOLTO': '-L/opt/homebrew/opt/libffi/lib '
+                     '-L/opt/homebrew/opt/libffi/lib',
  'PY_SQLITE_ENABLE_LOAD_EXTENSION': 0,
  'PY_SQLITE_HAVE_SERIALIZE': 1,
  'PY_SSL_DEFAULT_CIPHERS': 1,
  'PY_SSL_DEFAULT_CIPHER_STRING': 0,
  'PY_STDMODULE_CFLAGS': '-Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv '
-                        '-O3 -Wall -std=c11 -Wextra -Wno-unused-parameter '
-                        '-Wno-missing-field-initializers '
+                        '-O3 -Wall -I/opt/homebrew/opt/libffi/include '
+                        '-I/opt/homebrew/opt/libffi/include -std=c11 -Wextra '
+                        '-Wno-unused-parameter -Wno-missing-field-initializers '
+                        '-Wstrict-prototypes '
                         '-Werror=implicit-function-declaration '
                         '-fvisibility=hidden  '
                         '-I/Users/walidoutaleb/workspace/github.com/eikonoklastes/AirShare/.buildozer/android/platform/build-arm64-v8a/build/other_builds/hostpython3/desktop/hostpython3/Include/internal '

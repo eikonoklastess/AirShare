@@ -37,8 +37,8 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy
-
+requirements = python3,kivy,paramiko,cryptography,bcrypt,pynacl,androidstorage4kivy
+# requirements = kivy,kivymd,boto3,botocore,openssl,pyjnius,ecdsa,bcrypt,cryptography,paramiko,dateutil,urllib3,jmespath,PyNaCl, android
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
@@ -95,13 +95,14 @@ fullscreen = 0
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
-#android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
+# android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
+android.permissions = INTERNET,ACCESS_NETWORK_STATE,ACCESS_WIFI_STATE, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18), READ_EXTERNAL_STORAGE, READ_MEDIA_IMAGES
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 31
+android.api = 34
 
 # (int) Minimum API your APK / AAB will support.
 #android.minapi = 21

@@ -1,0 +1,100 @@
+crypto_stream/libsodium_la-crypto_stream.lo: \
+  crypto_stream/crypto_stream.c include/sodium/crypto_stream.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stddef.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/__stddef_max_align_t.h \
+  include/sodium/crypto_stream_xsalsa20.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stdint.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/stdint.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/wchar_limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/cdefs.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/versioning.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/api-level.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/get_device_api_level_inlines.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/ndk-version.h \
+  include/sodium/export.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/float.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/posix_limits.h \
+  include/sodium/randombytes.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/bin/../sysroot/usr/include/aarch64-linux-android/asm/types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/int-ll64.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/bin/../sysroot/usr/include/aarch64-linux-android/asm/bitsperlong.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/bitsperlong.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/posix_types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/stddef.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/compiler_types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/compiler.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/bin/../sysroot/usr/include/aarch64-linux-android/asm/posix_types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/posix_types.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h
+
+include/sodium/crypto_stream.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stddef.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/__stddef_max_align_t.h:
+
+include/sodium/crypto_stream_xsalsa20.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stdint.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/stdint.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/wchar_limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/cdefs.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/versioning.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/api-level.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/get_device_api_level_inlines.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/ndk-version.h:
+
+include/sodium/export.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/float.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/posix_limits.h:
+
+include/sodium/randombytes.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/bin/../sysroot/usr/include/aarch64-linux-android/asm/types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/int-ll64.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/bin/../sysroot/usr/include/aarch64-linux-android/asm/bitsperlong.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/bitsperlong.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/posix_types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/stddef.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/compiler_types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/compiler.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/bin/../sysroot/usr/include/aarch64-linux-android/asm/posix_types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/posix_types.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h:

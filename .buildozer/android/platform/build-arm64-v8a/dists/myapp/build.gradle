@@ -22,11 +22,11 @@ apply plugin: 'com.android.application'
 
 android {
     namespace 'org.test.myapp'
-    compileSdkVersion 31
+    compileSdkVersion 34
     buildToolsVersion '35.0.0'
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 34
         versionCode 10211
         versionName '0.1'
         manifestPlaceholders = [:]

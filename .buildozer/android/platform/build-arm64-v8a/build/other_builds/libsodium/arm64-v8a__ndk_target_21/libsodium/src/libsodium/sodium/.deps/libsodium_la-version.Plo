@@ -1,0 +1,36 @@
+sodium/libsodium_la-version.lo: sodium/version.c include/sodium/version.h \
+  include/sodium/export.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/cdefs.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/versioning.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/api-level.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/get_device_api_level_inlines.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/ndk-version.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/float.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/posix_limits.h
+
+include/sodium/version.h:
+
+include/sodium/export.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/cdefs.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/versioning.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/api-level.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/get_device_api_level_inlines.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/ndk-version.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/float.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/posix_limits.h:

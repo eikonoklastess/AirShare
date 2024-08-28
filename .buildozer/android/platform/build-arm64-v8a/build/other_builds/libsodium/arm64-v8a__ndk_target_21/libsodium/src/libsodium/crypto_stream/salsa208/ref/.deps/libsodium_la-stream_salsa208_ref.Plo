@@ -1,0 +1,57 @@
+crypto_stream/salsa208/ref/libsodium_la-stream_salsa208_ref.lo: \
+  crypto_stream/salsa208/ref/stream_salsa208_ref.c \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stdint.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/stdint.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/wchar_limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/cdefs.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/versioning.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/api-level.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/get_device_api_level_inlines.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/ndk-version.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stddef.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/__stddef_max_align_t.h \
+  include/sodium/crypto_core_salsa208.h include/sodium/export.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/float.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/limits.h \
+  /Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/posix_limits.h \
+  include/sodium/crypto_stream_salsa208.h include/sodium/utils.h
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stdint.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/stdint.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/wchar_limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/cdefs.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/versioning.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/api-level.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/get_device_api_level_inlines.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/ndk-version.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/stddef.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/__stddef_max_align_t.h:
+
+include/sodium/crypto_core_salsa208.h:
+
+include/sodium/export.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.6/include/float.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/limits.h:
+
+/Users/walidoutaleb/.buildozer/android/platform/android-ndk-r25b/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/posix_limits.h:
+
+include/sodium/crypto_stream_salsa208.h:
+
+include/sodium/utils.h:

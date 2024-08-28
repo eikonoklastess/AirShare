@@ -2,6 +2,9 @@
 #: set black (0,0,0,1)
 
 <MyLayout>
+	orientation: 'vertical'
+	spacing: 10
+	padding:10
 	canvas.before:
 		Color:
 			rgba: white
@@ -10,10 +13,12 @@
 			size: self.width, self.height
 
 	BoxLayout:
-		orientation: 'horizontal'
-		size: 0.9 * root.width, 0.5 * root.height
-		pos: 0.05 * root.width, 0.5 * root.height
-
+		id: connection
+		orientation: 'vertical'
+		size_hint: (1, 0.5)
+		pos_hint: {'center_x':0.5}
+		spacing: 10
+		padding: 10
 		canvas.before:
 			Color:
 				rgba: black
@@ -21,64 +26,67 @@
 				rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
 
 		Label:
-			size_hint: (0.3, 1)
-			text: "SSH"
+			size_hint: (1,0.1)
+			text: "SSH Connection"
 			color: black
-
+		TextInput:
+			id: hostname
+			mulitiline: False
+			hint_text: "hostname/ip"
+		TextInput:
+			id: username
+			multiline: False
+			hint_text: "username"
+		TextInput:
+			id: password
+			multline: False
+			hint_text: "password"
 		BoxLayout:
-			orientation: 'vertical'
-			size_hint: (0.7, 1)
-
-			spacing: 30
-			padding: 30
-
-			BoxLayout:
-				orientation: 'horizontal'
-				spacing: 30
-
-				Button:
-					text: "search network"
-					color: black
-				Label:
-					id: status
-					canvas.before:
-						Color:
-							rgba: black
-						Rectangle:
-							pos: self.pos
-							size: self.size
-					text: root.status
-					color: white
-
+			orientation: 'horizontal'
 			
-			TextInput:
-				id: hostname
-				multiline: False
-				text: root.hostname
-			TextInput:
-				id: username
-				multiline: False
-				text: root.username
-			TextInput:
-				id: password
-				multiline: False
-				text: root.password
+			Button:
+				text: "search network"
 			Button:
 				text: "connect"
-				on_press:
-					root.connect()
-				
-				
+				on_press: root.connect()
 
+		Label:
+			id: connexion_err
+			text: root.connexion_error
+			color: black
 
-<RoundedTextInput@TextInput>
-	multiline: False
-	font_size: 32
-	canvas.before:
-		Color:
-			rgba: white
-		RoundedRectangle:
-			pos: self.x, self.y
-			size: self.width, self.height
-			radius: [58]
-			
+	BoxLayout:
+		id: selection
+		orientation: 'vertical'
+		size_hint: (1, 0.4)
+		pos_hint: {'center_x': 0.5}
+		padding: 10
+		spacing: 10
+		canvas.before:
+			Color:
+				rgba: black
+			Line:
+				rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
+		Label:
+			size_hint: (1,0.1)
+			text: "file selection"
+			color: black
+		Button:
+			id: file_chooser
+			size_hint: (1,0.7)
+			text: root.file_chooser_text
+			on_press: root.chooser_start()
+		Button:
+			id: send_btn
+			size_hint: (1,0.2)
+			text: "send"
+			on_press: root.transfer()
+
+	BoxLayout:
+		orientation: 'horizontal'
+		size_hint: (1, 0.1)
+		pos_hint: {'center_x':0.5}
+
+		Label:
+			text: "AirShare"
+			color: black

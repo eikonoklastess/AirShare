@@ -18,12 +18,24 @@
     />
 
     <!-- Android 2.3.3 -->
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34" />
 
     <!-- OpenGL ES 2.0 -->
     <uses-feature android:glEsVersion="0x00020000" />
 
     <!-- Set permissions -->
+    
+        <uses-permission android:name="android.permission.INTERNET" />
+    
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+    
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    
+        <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     
 
     
