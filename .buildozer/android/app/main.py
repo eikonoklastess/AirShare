@@ -1,3 +1,4 @@
+from sys import stderr
 from androidstorage4kivy.sharedstorage import Environment
 import kivy
 import paramiko
@@ -18,6 +19,8 @@ from android_permissions import AndroidPermissions
 
 Environment = autoclass("android.os.Environment")
 Port = 22
+PythonActivity = autoclass("org.kivy.android.PythonActivity")
+AirShareDir = "~/airshare"
 
 
 class ConnectionStatus(Enum):
@@ -66,7 +69,8 @@ class MyLayout(BoxLayout):
             self.ssh.close()
 
     def chooser_start(self):
-        self.file_chooser_text = ""
+        if self.file_chooser_text == "choose file":
+            self.file_chooser_text = ""
         self.chooser = Chooser(self.chooser_callback)
         self.chooser.choose_content("*/*")
 
@@ -74,7 +78,12 @@ class MyLayout(BoxLayout):
         try:
             ss = SharedStorage()
             for uri in uri_list:
-                self.file_chooser_text += get_file_name_from_uri(str(uri))
+                self.file_chooser_text = (
+                    self.file_chooser_text + "\n" + str(get_file_name(uri))
+                )
+                print("============================\n")
+                print(str(get_file_name(uri)))
+                print("\n============================\n")
                 ss.copy_from_shared(uri)
         except Exception as e:
             Logger.warning("SharedStorageExample.chooser_callback():")
@@ -83,40 +92,40 @@ class MyLayout(BoxLayout):
     def transfer(self):
         self.ids["send_btn"].text = TransferStatus.TRANSFERING.value
         try:
-            # Connect to the server
             self.ssh.connect(
                 hostname=self.hostname,
                 port=Port,
                 username=self.username,
                 password=self.password,
             )
-            # Create an SFTP session from the SSH connection
-            sftp = self.ssh.open_sftp()
-            remote_file_path = "~/test"
 
-            print("=================================================================\n")
+            mkdir_command = f"mkdir {AirShareDir}"
+            finder_command = f"open {AirShareDir}"
+            stdin, stdout, stderr = self.ssh.exec_command(mkdir_command)
+            stdout.channel.recv_exit_status()
+            err = stderr.read().decode()
+            if err:
+                print(f"Error: {err}")
+            stdin, stdout, stderr = self.ssh.exec_command(finder_command)
+            stdout.channel.recv_exit_status()
+            err = stderr.read().decode()
+            if err:
+                print(f"Error: {err}")
+
+            sftp = self.ssh.open_sftp()
+
             context = mActivity.getApplicationContext()
             result = context.getExternalCacheDir()
             if result:
                 for root, dirs, files in os.walk(result.getPath()):
                     for file in files:
                         file_path = os.path.join(root, file)
-                        print(f"file path: {file_path}\n")
-                        print(f"/Users/walidoutaleb/test/{os.path.split(file_path)[1]}")
                         sftp.put(
                             file_path,
-                            f"/Users/walidoutaleb/test/{os.path.split(file_path)[1]}",
+                            f"/Users/{self.username}/airshare/{os.path.split(file_path)[1]}",
                         )
             else:
                 raise ValueError("cool")
-            print("=================================================================\n")
-            # cache_dir = os.path.join(app_storage_path(), "cache")
-            # print(f"chache_dir: {cache_dir}\n")
-            # for root, dirs, files in os.walk(cache_dir):
-            #     for file in files:
-            #         file_path = os.path.join(root, file)
-            #         print(f"found file: {file_path}\n")
-            # sftp.put(local_file_path, remote_file_path)
 
             self.ids["send_btn"].text = TransferStatus.FINISHED.value
         except Exception as e:
@@ -165,6 +174,9 @@ class MyLayout(BoxLayout):
         #                     currentActivity.startActivityForResult(intent, 101)
         #                     activity.startActivityForResult(intent, 1)
 
+    def network_scan(self):
+        self.ids["connexion"].clear_widgets()
+
 
 class MyApp(App):
     def build(self):
@@ -184,37 +196,19 @@ class MyApp(App):
             return False
 
 
-def get_file_name_from_uri(uri_string):
-    # Import the necessary Java classes
-    Uri = autoclass("android.net.Uri")
-    Context = autoclass("android.content.Context")
-    ContentResolver = autoclass("android.content.ContentResolver")
-
-    # Get the application context
-    context = autoclass(
-        "org.kivy.android.PythonActivity"
-    ).mActivity.getApplicationContext()
-
-    # Convert the string URI to a Uri object
-    uri = Uri.parse(uri_string)
-
-    # Get the content resolver
-    content_resolver = context.getContentResolver()
-
-    # Define the projection (the columns you want to retrieve)
-    projection = ["_display_name"]
-
-    # Query the content resolver
-    cursor = content_resolver.query(uri, projection, None, None, None)
-
-    # Extract the file name from the cursor
-    file_name = ""
-    if cursor and cursor.moveToFirst():
-        name_index = cursor.getColumnIndexOrThrow("_display_name")
-        file_name = cursor.getString(name_index)
-        cursor.close()
-
-    return file_name
+def get_file_name(uri):
+    content_resolver = PythonActivity.mActivity.getContentResolver()
+    cursor = content_resolver.query(uri, None, None, None, None)
+    if cursor is not None:
+        try:
+            if cursor.moveToFirst():
+                name_index = cursor.getColumnIndexOrThrow("_display_name")
+                return cursor.getString(name_index)
+        finally:
+            cursor.close()
+    # Fallback to getting the file name from the path if necessary
+    path = uri.getPath()
+    return path.split("/")[-1] if path else "Unknown"
 
 
 if __name__ == "__main__":
