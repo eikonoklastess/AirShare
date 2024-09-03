@@ -112,19 +112,26 @@ class MyLayout(BoxLayout):
                 username=self.username,
                 password=self.password,
             )
+            stdin, stdout, stderr = self.ssh.exec_command("ver")
+            stdout.channel.recv_exit_status()
+            err = stderr.read().decode()
+            if err:
+                mkdir_command = f"mkdir {AirShareDir}"
+                finder_command = f"open {AirShareDir}"
+            else:
+                mkdir_command = "mkdir %USERPROFILE%\\airshare"
+                finder_command = "explorer %USERPROFILE%\\airshare"
 
-            mkdir_command = f"mkdir {AirShareDir}"
-            finder_command = f"open {AirShareDir}"
             stdin, stdout, stderr = self.ssh.exec_command(mkdir_command)
             stdout.channel.recv_exit_status()
             err = stderr.read().decode()
             if err:
                 print(f"Error: {err}")
-            # stdin, stdout, stderr = self.ssh.exec_command(finder_command)
-            # stdout.channel.recv_exit_status()
-            # err = stderr.read().decode()
-            # if err:
-            #     print(f"Error: {err}")
+            stdin, stdout, stderr = self.ssh.exec_command(finder_command)
+            stdout.channel.recv_exit_status()
+            err = stderr.read().decode()
+            if err:
+                print(f"Error: {err}")
 
             sftp = self.ssh.open_sftp()
 
@@ -134,17 +141,24 @@ class MyLayout(BoxLayout):
                 for root, dirs, files in os.walk(result.getPath()):
                     for file in files:
                         file_path = os.path.join(root, file)
-                        sftp.put(
-                            file_path,
-                            f"/Users/{self.username}/airshare/{os.path.split(file_path)[1]}",
-                        )
-                        stdin, stdout, stderr = self.ssh.exec_command(
-                            f"open /Users/{self.username}/airshare/{os.path.split(file_path)[1]}"
-                        )
-                        stdout.channel.recv_exit_status()
-                        err = stderr.read().decode()
-                        if err:
-                            print(f"Error: {err}")
+                        if mkdir_command == f"mkdir {AirShareDir}":
+                            sftp.put(
+                                file_path,
+                                f"/Users/{self.username}/airshare/{os.path.split(file_path)[1]}",
+                            )
+                        else:
+                            stdin, stdout, stderr = self.ssh.exec_command(
+                                "echo %USERPROFILE%"
+                            )
+                            userprofile = stdout.read().decode().strip()
+                            if stderr.read():
+                                print(
+                                    f"Error retrieving USERPROFILE: {stderr.read().decode().strip()}"
+                                )
+                            sftp.put(
+                                file_path,
+                                f"{userprofile}\\airshare\\{os.path.split(file_path)[1]}",
+                            )
 
             self.ids["send_btn"].text = TransferStatus.FINISHED.value
             self.ids["send_btn"].color = (76 / 255, 175 / 255, 80 / 255, 1)
@@ -161,68 +175,13 @@ class MyLayout(BoxLayout):
             if temp and os.path.exists(temp):
                 rmtree(temp)
 
-        # def permissions_external_storage(self):
-        #     if platform == "android":
-        #         PythonActivity = autoclass("org.kivy.android.PythonActivity")
-        #         Environment = autoclass("android.os.Environment")
-        #         Intent = autoclass("android.content.Intent")
-        #         Settings = autoclass("android.provider.Settings")
-        #         Uri = autoclass("android.net.Uri")
-        #         if api_version > 29:
-        #             # If you have access to the external storage, do whatever you need
-        #             if Environment.isExternalStorageManager():
-        #                 # If you don't have access, launch a new activity to show the user the system's dialog
-        #                 # to allow access to the external storage
-        #                 pass
-        #             else:
-        #                 try:
-        #                     activity = mActivity.getApplicationContext()
-        #                     uri = Uri.parse("package:" + activity.getPackageName())
-        #                     intent = Intent(
-        #                         Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, uri
-        #                     )
-        #                     currentActivity = cast(
-        #                         "android.app.Activity", PythonActivity.mActivity
-        #                     )
-        #                     currentActivity.startActivityForResult(intent, 101)
-        #                 except:
-        #                     intent = Intent()
-        #                     intent.setAction(
-        #                         Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
-        #                     )
-        #                     currentActivity = cast(
-        #                         "android.app.Activity", PythonActivity.mActivity
-        #                     )
-        #                     currentActivity.startActivityForResult(intent, 101)
-        #                     activity.startActivityForResult(intent, 1)
+    def switch_to_help(self):
+        # Switch to the help layout
+        self.ids.screen_manager.current = "help_screen"
 
-    def help(self):
-        self.ids["connexion"].clear_widget()
-        self.ids["connexion"].add_widget(
-            Label(
-                text="[b]Setup connection[b]\n\n1. Setup PC as SFTP server:\n	Mac: Setting>General>Sharing\n Enable File Sharing and Remote Login\n2. Get your PC's IP\n	Open Terminal and enter ipconfig getifaddr en0\n\n Use this ip and your PC's username and password to connect!",
-                markup=True,
-            )
-        )
-
-
-def scan_network_for_ftp():
-    ip_base = "10.0.0."  # Adjust based on your network
-    ftp_servers = []
-    print("about to search")
-    for i in range(1, 255):
-        ip = ip_base + str(i)
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(0.5)
-            result = sock.connect_ex((ip, 21))  # FTP typically uses port 21
-            if result == 0:
-                ftp_servers.append(ip)
-            sock.close()
-        except socket.error:
-            continue
-
-    return ftp_servers
+    def switch_to_main(self):
+        # Switch back to the main layout
+        self.ids.screen_manager.current = "main_screen"
 
 
 def get_file_name(uri):

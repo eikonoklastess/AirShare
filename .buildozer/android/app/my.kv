@@ -15,90 +15,159 @@
 			pos: self.x, self.y
 			size: self.width, self.height
 
-	BoxLayout:
-		id: connexion
-		orientation: 'vertical'
+	ScreenManager:
+		id: screen_manager
 		size_hint: (1, 0.47)
-		pos_hint: {'center_x':0.5}
-		spacing: 20
-		padding: 10
-		halign: 'center'
-		canvas.before:
-			Color:
-				rgba: black
-			Line:
-				width: 2
-				rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
 
-		BoxLayout:
-			orientation: 'horizontal'
-			size_hint: (1,1)
-			Button:
-				size_hint_x: 0.2
-				text: "?"
-				color: black
-				font_size: '20sp'
-				background_disable_normal: ''
-				background_disable_down: ''
-				background_down: ''
-				background_normal: ''
-				background_color: 0,0,0,0
+		Screen:
+			name: 'main_screen'
+
+			BoxLayout:
+				id: connexion
+				orientation: 'vertical'
+				#size_hint: (1, 0.47)
+				pos_hint: {'center_x':0.5}
+				spacing: 20
+				padding: 10
+				halign: 'center'
 				canvas.before:
 					Color:
-						rgba: light_grey
-					Ellipse:
-						pos: self.pos
-						size: self.size
-				on_press: root.help()
+						rgba: black
+					Line:
+						width: 2
+						rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
 
-			Label:
-				text: "Connect to PC"
-				color: black
-				font_size: '20sp'
+				BoxLayout:
+					orientation: 'horizontal'
+					size_hint: (1,1)
+					Button:
+						size_hint_x: 0.2
+						text: "?"
+						color: black
+						font_size: '20sp'
+						background_disable_normal: ''
+						background_disable_down: ''
+						background_down: ''
+						background_normal: ''
+						background_color: 0,0,0,0
+						canvas.before:
+							Color:
+								rgba: light_grey
+							Ellipse:
+								pos: self.pos
+								size: self.size
+						on_press: root.switch_to_help()
+
+					Label:
+						text: "Connect to PC"
+						color: black
+						font_size: '20sp'
+						canvas.before:
+							Color:
+								rgba: 0,0,0,0
+							Rectangle:
+								pos: self.pos
+								size: self.size
+
+					Button:
+						size_hint_x: 0.2
+						background_disable_normal: ''
+						background_disable_down: ''
+						background_down: ''
+						background_normal: ''
+						background_color: 0,0,0,0
+
+				RoundedTextInput:
+					pos_hint: {'center_x':0.5}
+					id: hostname
+					mulitiline: False
+					hint_text: "hostname/ip"
+
+				RoundedTextInput:
+					pos_hint: {'center_x':0.5}
+					id: username
+					multiline: False
+					hint_text: "username"
+
+				RoundedTextInput:
+					pos_hint: {'center_x':0.5}
+					id: password
+					multline: False
+					password: True
+					hint_text: "password"
+
+				RoundedButton:
+					text: "connect"
+					on_press: root.connect()
+
+				Label:
+					id: connexion_err
+					text: root.connexion_error
+					color: black
+					font_size: '18sp'
+		Screen:
+			name: 'help_screen'
+
+			BoxLayout:
+				id: help
+				orientation: 'vertical'
+				#size_hint: (1, 0.47)
+				pos_hint: {'center_x':0.5}
+				spacing: 20
+				padding: 10
+				halign: 'center'
 				canvas.before:
 					Color:
-						rgba: 0,0,0,0
-					Rectangle:
-						pos: self.pos
-						size: self.size
+						rgba: black
+					Line:
+						width: 2
+						rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
 
-			Button:
-				size_hint_x: 0.2
-				background_disable_normal: ''
-				background_disable_down: ''
-				background_down: ''
-				background_normal: ''
-				background_color: 0,0,0,0
+				BoxLayout:
+					orientation: 'horizontal'
+					size_hint: (1,1/6)
+					Button:
+						size_hint_x: 0.2
+						text: "[b]<[b]"
+						markup: True
+						color: black
+						font_size: '20sp'
+						background_disable_normal: ''
+						background_disable_down: ''
+						background_down: ''
+						background_normal: ''
+						background_color: 0,0,0,0
+						canvas.before:
+							Color:
+								rgba: light_grey
+							Ellipse:
+								pos: self.pos
+								size: self.size
+						on_press: root.switch_to_main()
 
-		RoundedTextInput:
-			pos_hint: {'center_x':0.5}
-			id: hostname
-			mulitiline: False
-			hint_text: "hostname/ip"
+					Label:
+						text: "Guide"
+						color: black
+						font_size: '20sp'
+						canvas.before:
+							Color:
+								rgba: 0,0,0,0
+							Rectangle:
+								pos: self.pos
+								size: self.size
 
-		RoundedTextInput:
-			pos_hint: {'center_x':0.5}
-			id: username
-			multiline: False
-			password: True
-			hint_text: "username"
+					Button:
+						size_hint_x: 0.2
+						background_disable_normal: ''
+						background_disable_down: ''
+						background_down: ''
+						background_normal: ''
+						background_color: 0,0,0,0
 
-		RoundedTextInput:
-			pos_hint: {'center_x':0.5}
-			id: password
-			multline: False
-			password: True
-			hint_text: "password"
-
-		RoundedButton:
-			text: "connect"
-			on_press: root.connect()
-
-		Label:
-			id: connexion_err
-			text: root.connexion_error
-			color: black
-			font_size: '18sp'
+				Label:
+					text: "[b]1. Set PC as SSH server[/b]\nMac:\n  Settings > General > Sharing\nEnable Remote Login\nWindow(10pro & 11):\n  System > Advanced System Settings > Remote\nAllow Remote Connections\n[b]2. Get PC's IP[/b]\nMacOS:\n  Open Terminal and enter \"ipconfig getifaddr en0\"\nWindows:\n  Open CMD and enter \"ipconfig\"\nEnter the IP in the app and your PC's username\nand password\nYou can now share files!"
+					markup: True
+					color: black
 
 	BoxLayout:
 		id: selection
