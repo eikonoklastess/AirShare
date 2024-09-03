@@ -1,0 +1,15 @@
+androidstorage4kivy-0.1.1.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+androidstorage4kivy-0.1.1.dist-info/LICENSE,sha256=1_RB1y5SQ2y87cAIAPAaYed1x3PDtHNI9A0ZsSrIz14,1096
+androidstorage4kivy-0.1.1.dist-info/METADATA,sha256=OWYwpNtM7lL67IT3SZ1sJr8h4p8CmWONXRbMFg35ro0,10374
+androidstorage4kivy-0.1.1.dist-info/RECORD,,
+androidstorage4kivy-0.1.1.dist-info/REQUESTED,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+androidstorage4kivy-0.1.1.dist-info/WHEEL,sha256=Xo9-1PvkuimrydujYJAjF7pCkriuXBpUPEjma1nZyJ0,92
+androidstorage4kivy-0.1.1.dist-info/top_level.txt,sha256=I6Y1z1cO_iZePJjb1VuU93dP-XwZaQlNkZdgsvlM8gI,20
+androidstorage4kivy/__init__.py,sha256=9XMFwufBAR61Afg6xVprXULWIodrbNNv6SHtNv2DB-M,108
+androidstorage4kivy/__pycache__/__init__.cpython-311.pyc,,
+androidstorage4kivy/__pycache__/chooser.cpython-311.pyc,,
+androidstorage4kivy/__pycache__/sharedstorage.cpython-311.pyc,,
+androidstorage4kivy/__pycache__/sharesheet.cpython-311.pyc,,
+androidstorage4kivy/chooser.py,sha256=BSDX92peC_kZaW14IUD0dYK0Udzuum5rOnm5nMZPj6M,3028
+androidstorage4kivy/sharedstorage.py,sha256=BrbGErlzfhrzd4HMUcHN2XBPuPIYAA_sxCVqng_gOlg,14025
+androidstorage4kivy/sharesheet.py,sha256=FTV9wrjlJE-zhqbaT12Y09-YdmU-BGIrXyxituh60zk,8400

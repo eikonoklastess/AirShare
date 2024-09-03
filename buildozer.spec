@@ -1,16 +1,16 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = AirShare
 
 # (str) Package name
-package.name = myapp
+package.name = airshare
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
 
 # (str) Source code where the main.py live
-source.dir = .
+source.dir = ./src
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
@@ -412,7 +412,7 @@ warn_on_root = 1
 # build_dir = ./.buildozer
 
 # (str) Path to build output (i.e. .apk, .aab, .ipa) storage
-# bin_dir = ./bin
+bin_dir = .
 
 #    -----------------------------------------------------------------------------
 #    List as sections

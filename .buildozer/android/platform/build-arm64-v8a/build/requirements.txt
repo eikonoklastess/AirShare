@@ -1,1 +1,7 @@
 androidstorage4kivy
+certifi
+chardet
+idna
+paramiko
+requests
+urllib3
