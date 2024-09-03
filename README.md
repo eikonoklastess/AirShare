@@ -1,7 +1,7 @@
 # AirShare
 AirShare is a wrapper around sftp with a simple ui meant to be a replacement for my use case of AirDrop.
 
-[demo](https://github.com/eikonoklastess/AirShare/blob/main/demo/demo.gif) 
+[](https://github.com/eikonoklastess/AirShare/blob/main/demo/demo.gif) 
 
 ### How to Use
  - Simply download the right apk for your android phone architecture and install it.
