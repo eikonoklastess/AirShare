@@ -1,10 +1,13 @@
 #:set white (1,1,1,1)
-#: set black (0,0,0,1)
+#:set black (0,0,0,1)
+#:set light_grey (211/255,211/255,211/255,1)
+#:set grey (130/255,130/255,130/255,1)
+#:set pale_blue (0.28, 0.37, 0.37, 1)
 
 <MyLayout>
 	orientation: 'vertical'
-	spacing: 10
-	padding:10
+	spacing: 40
+	padding: 40
 	canvas.before:
 		Color:
 			rgba: white
@@ -13,81 +16,206 @@
 			size: self.width, self.height
 
 	BoxLayout:
-		id: connection
+		id: connexion
 		orientation: 'vertical'
-		size_hint: (1, 0.5)
+		size_hint: (1, 0.47)
 		pos_hint: {'center_x':0.5}
-		spacing: 10
+		spacing: 20
 		padding: 10
+		halign: 'center'
 		canvas.before:
 			Color:
 				rgba: black
 			Line:
+				width: 2
 				rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
 
-		Label:
-			size_hint: (1,0.1)
-			text: "SSH Connection"
-			color: black
-		TextInput:
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1,1)
+			Button:
+				size_hint_x: 0.2
+				text: "?"
+				color: black
+				font_size: '20sp'
+				background_disable_normal: ''
+				background_disable_down: ''
+				background_down: ''
+				background_normal: ''
+				background_color: 0,0,0,0
+				canvas.before:
+					Color:
+						rgba: light_grey
+					Ellipse:
+						pos: self.pos
+						size: self.size
+				on_press: root.help()
+
+			Label:
+				text: "Connect to PC"
+				color: black
+				font_size: '20sp'
+				canvas.before:
+					Color:
+						rgba: 0,0,0,0
+					Rectangle:
+						pos: self.pos
+						size: self.size
+
+			Button:
+				size_hint_x: 0.2
+				background_disable_normal: ''
+				background_disable_down: ''
+				background_down: ''
+				background_normal: ''
+				background_color: 0,0,0,0
+
+		RoundedTextInput:
+			pos_hint: {'center_x':0.5}
 			id: hostname
 			mulitiline: False
 			hint_text: "hostname/ip"
-		TextInput:
+
+		RoundedTextInput:
+			pos_hint: {'center_x':0.5}
 			id: username
 			multiline: False
+			password: True
 			hint_text: "username"
-		TextInput:
+
+		RoundedTextInput:
+			pos_hint: {'center_x':0.5}
 			id: password
 			multline: False
+			password: True
 			hint_text: "password"
-		BoxLayout:
-			orientation: 'horizontal'
-			
-			Button:
-				text: "search network"
-				on_press: root.network_scan()
-			Button:
-				text: "connect"
-				on_press: root.connect()
+
+		RoundedButton:
+			text: "connect"
+			on_press: root.connect()
 
 		Label:
 			id: connexion_err
 			text: root.connexion_error
 			color: black
+			font_size: '18sp'
 
 	BoxLayout:
 		id: selection
 		orientation: 'vertical'
-		size_hint: (1, 0.4)
+		size_hint: (1, 0.47)
 		pos_hint: {'center_x': 0.5}
 		padding: 10
-		spacing: 10
+		spacing: 20
 		canvas.before:
 			Color:
 				rgba: black
 			Line:
+				width: 2
 				rounded_rectangle: (self.x, self.y, self.width, self.height, 60, 60, 60, 60, 30)
+
 		Label:
-			size_hint: (1,0.1)
 			text: "file selection"
+			size_hint_y:(1/6)
+			font_size: '20sp'
 			color: black
-		Button:
+
+		RoundedButton:
 			id: file_chooser
-			size_hint: (1,0.7)
+			size_hint: (0.9,0.6)
+			pos_hint: {'center_x':0.5}
 			text: root.file_chooser_text
 			on_press: root.chooser_start()
-		Button:
-			id: send_btn
-			size_hint: (1,0.2)
+
+		RoundedButton:
+			size_hint_y:(1/6)
 			text: "send"
 			on_press: root.transfer()
 
+		Label:
+			id: send_btn
+			size_hint_y:(1/6)
+			text: ""
+			color: black
+
 	BoxLayout:
 		orientation: 'horizontal'
-		size_hint: (1, 0.1)
 		pos_hint: {'center_x':0.5}
+		size_hint: (1, 0.06)
 
 		Label:
 			text: "AirShare"
 			color: black
+			font_size: '26sp'
+
+<Guide>:
+	BoxLayout:
+		id: guide
+		orientation: 'vertical'
+		spacing: 20
+		padding: 20
+		canvas.before:
+			Color:
+				rgba: white
+			Rectangle: 
+				pos: self.x, self.y
+				size: self.width, self.height
+		Label:
+			text:"[b]Setup connection[b]\n\n1. Setup PC as SFTP server:\n	Mac: Setting>General>Sharing\n Enable File Sharing and Remote Login\n2. Get your PC's IP\n	Open Terminal and enter ipconfig getifaddr en0\n\n Use this ip and your PC's username and password to connect!"
+		Button:
+			size_hint:(None,1)
+			pos_hint: {'x':0.75}
+			text: "return"
+			color: black
+			background_color: 0,0,0,0
+			#background_down: ''
+			border: black
+			#background_normal: ''
+			size: (root.width/3, 40)
+			canvas.before:
+				Color:
+					rgba: light_grey if self.state=='normal' else grey
+				#Line:
+					#rounded_rectangle: (self.x, self.y, self.width, self.height, 40)
+				RoundedRectangle:
+					pos: self.pos
+					size: self.size
+					radius: [40,]
+
+<RoundedButton@Button>:
+	size_hint:(0.3,1)
+	pos_hint: {'x':0.65}
+	font_size: '16sp'
+	color: black
+	background_color: 0,0,0,0
+	#background_down: ''
+	border: (10,10,10,10)
+	#background_normal: ''
+	#width: '120dp'
+	canvas.before:
+		Color:
+			rgba: light_grey if self.state=='normal' else grey
+		#Line:
+			#rounded_rectangle: (self.x, self.y, self.width, self.height, 40)
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [40,]
+
+<RoundedTextInput@TextInput>:
+	size_hint: (0.9, 1)
+	font_size: '20sp'
+	valign: 'middle'
+	padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+	background_active: ''
+	background_normal: ''
+	background_disabled_normal: ''
+	border: white
+	canvas.before:
+		Color:
+			rgba: black
+		Line:
+			rounded_rectangle: (self.x, self.y, self.width, self.height, 40)
+		Color:
+			rgba:
+				self.disabled_foreground_color if self.disabled else (self.hint_text_color if not self.text else self.foreground_color)
