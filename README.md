@@ -5,7 +5,7 @@ AirShare is a wrapper around sftp with a simple ui meant to be a replacement for
 
 ### How to Use
  - Simply download the right apk for your android phone architecture and install it.
- - That's it! If you not sure how to establish the connection to your pc just click on the '?' icon.
+ - That's it! If you're not sure how to establish the connection to your pc just click on the '?' icon.
  - You can simply select any file and send it to your pc.
 
 ### Limitation
